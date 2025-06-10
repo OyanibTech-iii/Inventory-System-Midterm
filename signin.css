@@ -1,0 +1,311 @@
+:root {
+    --primary-color: #0099ff;
+    --secondary-color: #0099ff;
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --border-color: #d9d9d9;
+    --hover-color: #0099ff;
+    --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.801);
+    --light-color: #ffffff;
+    --input-text-color: #0099ff;
+    --brand-blue: #0099ff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(rgba(27, 12, 243, 0.85), rgba(206, 221, 240, 0.767)), url('assets/NORSU.jpg');
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 900px;
+    height: 600px; /* Increased height slightly */
+    display: flex;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(14, 15, 15, 0.712);
+}
+
+.image-panel {
+    width: 45%;
+    background-image:url('assets/shoes.png');
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    order: 2; 
+    background-size: cover;
+    background-position: center;
+   
+}
+
+.image-panel img.feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.branding-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: transparent;
+    z-index: 2;
+}
+
+.brand-logo {
+    font-size: 22px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin: 0;
+}
+
+.brand-tagline {
+    font-size: 12px;
+    color: rgba(255,255,255,0.9);
+    margin-top: 5px;
+}
+
+.login-panel {
+    width: 55%;
+    background-color: white;
+    padding: 30px; /* Reduced padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    order: 1; /* This puts the form on the left */
+    overflow-y: auto; /* Add scrolling for small screens */
+}
+
+.login-header {
+    margin-bottom: 20px; /* Reduced margin */
+    text-align: center;
+}
+
+.welcome-text {
+    color: var(--primary-color);
+    font-size: 24px; /* Reduced font size */
+    font-weight: 600;
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+.form-title {
+    color: var(--text-color);
+    font-size: 14px; /* Reduced font size */
+    font-weight: 400;
+    margin-bottom: 20px; /* Reduced margin */
+}
+
+.form-control {
+    padding: 12px 15px 12px 45px; /* Reduced padding */
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 14px; /* Reduced font size */
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+    color: var(--input-text-color);
+    margin-bottom: 5px;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(255, 102, 178, 0.25);
+    background-color: white;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px; /* Adjusted position */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    width: 18px; /* Reduced size */
+    height: 18px; /* Reduced size */
+    z-index: 10;
+    stroke-width: 2;
+}
+
+.btn-primary {
+    background: var(--brand-blue);
+    border: none;
+    width: 100%;
+    padding: 12px; /* Reduced padding */
+    font-size: 15px; /* Reduced font size */
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 10px; /* Reduced margin */
+    margin-bottom: 10px; /* Reduced margin */
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #0077cc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 153, 255, 0.4);
+}
+
+.invalid-feedback {
+    font-size: 75%; /* Reduced font size */
+    margin-top: 5px; /* Reduced margin */
+    color: #f72710;
+    padding-left: 10px;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 15px; /* Reduced margin */
+    color: var(--text-color);
+    font-size: 13px; /* Reduced font size */
+}
+
+.password-toggle, .confirm-password-toggle {
+    background: none;
+    border: none;
+    padding: 0.375rem 0.75rem;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.toggle-icon {
+    color: #0e1ce0;
+    transition: color 0.3s ease;
+    width: 18px; /* Reduced size */
+    height: 18px; /* Reduced size */
+}
+
+.toggle-icon:hover {
+    color: #0044ff;
+}
+
+.toggle-icon-visible {
+    color: #0b2df0;
+}
+
+.form-control.is-invalid + .password-toggle .toggle-icon,
+.form-control.is-invalid + .confirm-password-toggle .toggle-icon {
+    color: #0099ff;
+}
+
+.alert {
+    border-radius: 8px;
+    padding: 10px; /* Reduced padding */
+    margin-bottom: 15px; /* Reduced margin */
+    font-size: 13px; /* Reduced font size */
+}
+
+.bottom-illustration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px; /* Reduced height */
+    background-size: contain;
+    background-repeat: repeat-x;
+    background-position: bottom center;
+    opacity: 0.7;
+}
+
+a {
+    text-decoration: none;
+    color: var(--brand-blue);
+    font-weight: 500;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; /* Reduced margin */
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.feature-item {
+    text-align: center;
+    padding: 0 10px; /* Reduced padding */
+    font-size: 11px; /* Reduced font size */
+    color: #777;
+    margin-bottom: 5px; /* Added margin for wrapping */
+}
+
+.feature-icon {
+    display: block;
+    margin: 0 auto 3px; /* Reduced margin */
+    color: var(--brand-blue);
+    width: 16px; /* Specified width */
+    height: 16px; /* Specified height */
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        height: auto;
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .image-panel {
+        width: 100%;
+        height: 180px; /* Reduced height */
+        order: 1; /* Image at the top for mobile */
+    }
+
+    .login-panel {
+        width: 100%;
+        padding: 25px 20px; /* Reduced padding */
+        order: 2; /* Form below for mobile */
+    }
+    
+    .feature-list {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .feature-item {
+        margin-bottom: 10px;
+    }
+}
+
+/* For very small screens */
+@media (max-height: 700px) {
+    .login-container {
+        height: 550px;
+    }
+    
+    .login-panel {
+        padding: 20px 15px;
+    }
+    
+    .welcome-text {
+        font-size: 22px;
+    }
+    
+    .input-group {
+        margin-bottom: 12px;
+    }
+}

@@ -1,0 +1,387 @@
+/* Remove the global scrollbar styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars on body and html */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    flex: 1 0 auto;
+    overflow: hidden; /* Prevent scrollbars on content wrapper */
+}
+
+main {
+    height: 100vh;
+    overflow-y: auto; /* Only main should have vertical scrollbar */
+    padding-bottom: 2rem;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+/* Custom scrollbar styling only for main element */
+main::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+main::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb {
+    background: #0d6efd;
+    border-radius: 10px;
+}
+
+main::-webkit-scrollbar-thumb:hover {
+    background: #0b5ed7;
+}
+
+/* Firefox scrollbar styling for main only */
+main {
+    scrollbar-width: thin;
+    scrollbar-color: #0d6efd #f1f1f1;
+}
+
+/* Keep the other styles unchanged */
+#sidebar .nav-link, 
+.sidebar .nav-link {
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+    border-radius: 4px;
+    margin: 0.2rem 0.5rem;
+}
+
+#sidebar .nav-link:hover,
+.sidebar .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+#sidebar .nav-link.active,
+.sidebar .nav-link.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
+    border-radius: 4px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-nav .nav-link[data-bs-target="#logoutModal"] {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+}
+.user-profile-section {
+    padding: 15px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin: 0 10px 20px;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.profile-image {
+    transition: all 0.3s ease;
+}
+
+.change-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-image-container:hover .change-image-overlay {
+    opacity: 1;
+}
+
+.profile-image-container:hover .profile-image {
+    filter: brightness(0.8);
+}
+
+/* Nav Link Styling */
+#sidebarMenu .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 2px 10px;
+    transition: all 0.3s ease;
+}
+
+#sidebarMenu .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+#sidebarMenu .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-weight: 500;
+}
+
+#sidebarMenu .nav-link i {
+    margin-right: 8px;
+}
+  /* AI Assistant Chat Popup Styles */
+  .ai-assistant-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #246BFD;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.ai-assistant-btn:hover {
+    transform: scale(1.1);
+    background-color: #1a5fd9;
+}
+
+.ai-assistant-container {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 450px;
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.671);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.ai-assistant-container.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.ai-assistant-header {
+    background-color: #246BFD;
+    color: white;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ai-assistant-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.ai-assistant-avatar {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.ai-close-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.ai-chat-messages {
+    flex-grow: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ai-message {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    margin-bottom: 2px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.ai-message-bot {
+    background-color: #f0f0f0;
+    color: #333;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+}
+
+.ai-message-user {
+    background-color: #246BFD;
+    color: white;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+}
+
+.ai-typing-indicator {
+    background-color: #f0f0f0;
+    padding: 8px 14px;
+    border-radius: 18px;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+    font-size: 14px;
+    color: #666;
+    display: none;
+}
+
+.ai-typing-indicator span {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #666;
+    border-radius: 50%;
+    margin-right: 2px;
+    animation: typing 1s infinite;
+}
+
+.ai-typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.ai-typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+    margin-right: 0;
+}
+
+@keyframes typing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.ai-chat-input {
+    padding: 12px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ai-input-field {
+    flex-grow: 1;
+    background-color: #f5f7fb;
+    border-radius: 18px;
+    padding: 8px 14px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+    min-height: 24px;
+    max-height: 100px;
+    resize: none;
+}
+
+.ai-send-btn {
+    width: 36px;
+    height: 36px;
+    background-color: #246BFD;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.ai-send-btn:hover {
+    transform: scale(1.05);
+    background-color: #1a5fd9;
+}
+
+.ai-send-btn:disabled {
+    background-color: #b3b3b3;
+    cursor: not-allowed;
+}
+
+.ai-suggestions {
+    display: flex;
+    padding: 0 12px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ai-suggestion {
+    background-color: #f5f7fb;
+    border: 1px solid #e6e6e6;
+    border-radius: 16px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.ai-suggestion:hover {
+    background-color: #e6ecff;
+    border-color: #246BFD;
+}

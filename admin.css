@@ -1,0 +1,320 @@
+/* File: admin.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+/* Sidebar styling with fixed position */
+#sidebar {
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#sidebar .nav-link {
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+    border-radius: 4px;
+    margin: 0.2rem 0.5rem;
+}
+
+#sidebar .nav-link:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+#sidebar .nav-link.active {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
+
+/* Main content area with independent scrolling */
+main {
+    height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+}
+
+/* Custom scrollbar styling for all scrollable areas */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #588bf8;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #033da7;
+}
+
+/* Firefox scrollbar styling */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #4505f5 #f1f1f1;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-weight: 600;
+    padding: 1rem;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.table th {
+    font-weight: 600;
+    color: #495057;
+}
+
+.badge {
+    font-weight: 500;
+    padding: 0.35em 0.65em;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+.btn-primary {
+    background-color: #0d43f3;
+    border-color: #011a24a4;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    border: 2px solid #011a24a4;
+
+}
+
+/* Feature cards with hover effect */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional styling for dashboard sections */
+section {
+    margin-bottom: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    #sidebar {
+        position: relative;
+        height: auto;
+        min-height: auto;
+    }
+    
+    main {
+        height: auto;
+    }
+}
+
+/* Map and location styles */
+.dashboard-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.map-fullscreen {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 200px);
+    min-height: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #f0f0f0;
+}
+
+/* Map loading indicator */
+#map::before {
+    content: "Loading map...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-size: 16px;
+}
+
+/* 3 dots toggle button */
+.location-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.location-toggle:hover {
+    transform: scale(1.1);
+    background-color: #f8f8f8;
+}
+
+.location-toggle:active {
+    transform: scale(0.95);
+}
+
+.dots {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dots span {
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #03733F;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.location-toggle:hover .dots span {
+    background-color: #025d32;
+}
+
+/* Location info panel */
+.location-info-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 350px;
+    max-width: 90%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 25px 20px 20px;
+    transform: translateX(400px);
+    transition: transform 0.4s ease;
+    z-index: 5;
+    max-height: calc(100% - 40px);
+    overflow-y: auto;
+}
+
+.location-info-panel.active {
+    transform: translateX(0);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.location-info-panel h2 {
+    color: #03733F;
+    margin-bottom: 15px;
+}
+
+.location-info {
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.location-info h3 {
+    color: #025d32;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.location-info p {
+    margin-bottom: 10px;
+}
+
+.location-info ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.directions-btn {
+    margin-top: 20px;
+}
+
+.btn-location {
+    background-color: #03733F;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-location:hover {
+    background-color: #025d32;
+}

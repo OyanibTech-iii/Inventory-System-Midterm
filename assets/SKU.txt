@@ -1,0 +1,3 @@
+Stock Keeping Unit
+-It is a unique identifier assigned to each product or item in a company’s inventory. 
+SKUs help businesses track stock, organize inventory, and streamline sales and logistics.
